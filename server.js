@@ -6,6 +6,19 @@ const PORT = process.env.PORT || 5000;
 // Middleware to read JSON data 
 app.use(express.json()); 
 // Health-check endpoint 
+// Information
+app.get('/api/greeting', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Hello, this is my information",
+    student: {
+      fullName: "Tran Thanh The", 
+      studentId: "24560032",   
+      class: "CSBU109"    
+    },
+    timestamp: new Date()
+  });
+});
 app.get('/', (req, res) => { 
 res.status(200).json({ 
 message: 'Welcome to Web Backend & Database Lab 1 API!', 
